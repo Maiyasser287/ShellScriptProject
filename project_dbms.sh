@@ -189,8 +189,14 @@ select_from_table(){
 		echo "Table doesnot exist."
 		return
 	fi
-	echo "Content Table [$tablename]:"
-	column -t -s ',' "$filepath"
+
+	echo -n "Enter value to select forfrom table: "
+    read select_value
+
+    echo "Rows containing '$select_value' in [$tablename]:"
+    head -n 1 "$filepath" | column -t -s ','
+    grep "$select_value" "$filepath" | column -t -s ','
+
 }
 
 delete_from_table(){
