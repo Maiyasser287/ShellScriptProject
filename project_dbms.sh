@@ -247,7 +247,7 @@ update_table(){
 
 	while IFS= read -r line; do
 		if [[ "$line" == *"$search_value"* ]]; then
-			echo "$new_row" >> "$filepath.tmp"
+			echo "$row" >> "$filepath.tmp"
 			matched=true
 		else
 			echo "$line" >> "$filepath.tmp"
